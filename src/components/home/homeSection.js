@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!code) return;
-    fetch(`http://localhost:3001/${code}`)
+    fetch(`https://www.1-sao789.info//${code}`)
       .then(res => {
         if (!res.ok) throw new Error('Không tìm thấy hoặc bị chặn');
         return res.json();
