@@ -5,14 +5,14 @@ import bgImage from '../assets/bgImage.jpeg';
 import TextSlider from '../middleware/TextSlider';
 
 const Home = () => {
-  const { code } = useParams(); // Lấy /:code từ URL
+
   const [originalUrl, setOriginalUrl] = useState(null);
   const [error, setError] = useState('');
 
  useEffect(() => {
-  if (!code) return;
-  fetch(`https://linkrepo.onrender.com/${code}`)
-    .then(res => {  
+  const defaultCode = 'abc123'; // Mặc định
+  fetch(`https://linkrepo.onrender.com/${defaultCode}`)
+    .then(res => {
       if (!res.ok) throw new Error('Không tìm thấy hoặc bị chặn');
       return res.json();
     })
@@ -21,7 +21,8 @@ const Home = () => {
       setOriginalUrl(data.originalUrl);
     })
     .catch(err => setError(err.message));
-}, [code]);
+}, []);
+
 
 
   const handleClick = () => {
@@ -56,7 +57,7 @@ const Home = () => {
           "Đăng ký hôm nay, nhận quà khủng, chơi thả ga."
         </p>
         {error && <p className="text-danger">{error}</p>}
-        
+        {originalUrl && (
           <Button
             variant="warning"
             size="lg"
@@ -65,7 +66,7 @@ const Home = () => {
           >
             Đăng Ký Ngay - Chơi Thắng Lớn!
           </Button>
-        
+        )}
       </Container>
     </div>
   );
