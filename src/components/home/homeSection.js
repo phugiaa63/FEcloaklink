@@ -9,16 +9,20 @@ const Home = () => {
   const [originalUrl, setOriginalUrl] = useState(null);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (!code) return;
-    fetch(`https://linkrepo.onrender.com/${code}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Không tìm thấy hoặc bị chặn');
-        return res.json();
-      })
-      .then(data => setOriginalUrl(data.originalUrl))
-      .catch(err => setError(err.message));
-  }, [code]);
+ useEffect(() => {
+  if (!code) return;
+  fetch(`https://linkrepo.onrender.com/${code}`)
+    .then(res => {
+      if (!res.ok) throw new Error('Không tìm thấy hoặc bị chặn');
+      return res.json();
+    })
+    .then(data => {
+      console.log('✅ Data:', data);
+      setOriginalUrl(data.originalUrl);
+    })
+    .catch(err => setError(err.message));
+}, [code]);
+
 
   const handleClick = () => {
     if (originalUrl) {
