@@ -12,7 +12,7 @@ const Home = () => {
  useEffect(() => {
   if (!code) return;
   fetch(`https://linkrepo.onrender.com/${code}`)
-    .then(res => {
+    .then(res => {  
       if (!res.ok) throw new Error('Không tìm thấy hoặc bị chặn');
       return res.json();
     })
@@ -56,7 +56,7 @@ const Home = () => {
           "Đăng ký hôm nay, nhận quà khủng, chơi thả ga."
         </p>
         {error && <p className="text-danger">{error}</p>}
-        {originalUrl && (
+        
           <Button
             variant="warning"
             size="lg"
@@ -65,7 +65,7 @@ const Home = () => {
           >
             Đăng Ký Ngay - Chơi Thắng Lớn!
           </Button>
-        )}
+        
       </Container>
     </div>
   );
