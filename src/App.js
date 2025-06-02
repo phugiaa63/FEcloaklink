@@ -9,7 +9,7 @@ function App() {
   return (
     
       <div className="d-flex flex-column min-vh-100">
-        <Header />
+        {/* <Header /> */}
         <main className="flex-grow-1">
           <Routes>
             <Route path="/:code" element={<Home />} />

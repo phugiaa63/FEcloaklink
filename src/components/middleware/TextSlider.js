@@ -3,7 +3,7 @@ import './TexSlider.css';
 
 const TextTicker = () => {
   return (
-    <div className="ticker-container bg-dark text-danger py-2">
+    <div className="ticker-container bg- text-danger py-2">
       <div className="ticker-content">
         NHẬN NGAY THƯỞNG ĐĂNG KÝ HÀNG TRIỆU ĐỒNG! &nbsp; • &nbsp;
         THAM GIA SÂN CHƠI CÁ CƯỢC UY TÍN NHẤT VIỆT NAM &nbsp; • &nbsp;
